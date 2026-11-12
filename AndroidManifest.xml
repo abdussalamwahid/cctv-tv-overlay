@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.salam.tvwidget"
+    android:versionCode="8"
+    android:versionName="1.5">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <application android:label="CCTV Home" android:allowBackup="false"
+        android:usesCleartextTraffic="true">
+        <service
+            android:name=".FocusService"
+            android:label="CCTV Home"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config"/>
+        </service>
+    </application>
+</manifest>
